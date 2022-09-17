@@ -10,6 +10,7 @@ class AsciiArt extends StatefulWidget {
 }
 
 class AsciiArtState extends State<AsciiArt> {
+
   @override
   Widget build(BuildContext context) {
     return const Text("Test");
