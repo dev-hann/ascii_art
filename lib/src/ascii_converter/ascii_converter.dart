@@ -8,13 +8,17 @@ class AsciiConverter {
     this.reverse = false,
   }) : assert(dataList.isNotEmpty, "data must not be empty");
 
-  final List<Int8List> dataList;
+  final List<Uint8List> dataList;
   final bool reverse;
 
   String convert() {
     final table = reverse ? asciiTable.reversed.toList() : asciiTable;
-    return dataList.map((data) {
-      return data.map((value) => table[value]).join();
+    final res = dataList.map((data) {
+      return data.map((value) {
+        final normalizedIndex = (value / 256 * (table.length - 1)).round();
+        return table[normalizedIndex];
+      }).join();
     }).join("\n");
+    return res;
   }
 }
