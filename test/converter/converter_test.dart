@@ -11,7 +11,7 @@ void main(){
         final c = AsciiConverter([
           Int8List.fromList([123])
         ]);
-        expect(c.dataList, [
+        expect(c.data, [
           [123],
         ]);
       });
