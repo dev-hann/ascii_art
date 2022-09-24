@@ -1,6 +1,6 @@
-
 # Ascii Art
 Arcii Art Widget written by flutter.
+<img src="https://github.com/yoehwan/ascii_art/blob/main/example/assets/screen_shot.png?raw=true">
 
 ## Getting started
 In the `pubspec.yaml` of your flutter project, add the following dependency:
