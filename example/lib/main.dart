@@ -26,24 +26,32 @@ class MyApp extends StatelessWidget {
 class AsciiArtExample extends StatelessWidget {
   const AsciiArtExample({super.key});
 
+  Widget image(String path) {
+    return Expanded(
+      child: Row(
+        children: [
+          Expanded(child: Image.asset(path)),
+          Expanded(child: AsciiArt.file(path)),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ListView(
-          padding: const EdgeInsets.all(32),
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
           children: [
-            AsciiArt.file(
+            image(
               "assets/example1.png",
-              selectable: true,
             ),
-            AsciiArt.file(
+            image(
               "assets/example2.png",
-              selectable: true,
             ),
-            AsciiArt.file(
+            image(
               "assets/example3.png",
-              selectable: true,
             ),
           ],
         ),
