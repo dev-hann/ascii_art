@@ -15,9 +15,7 @@ class AsciiArt extends StatefulWidget {
     this.asciiTable = _asciiTable,
   })  : assert(asciiTable.isNotEmpty, "asciiTable must not be empty"),
         assert(data.isNotEmpty, "data must not be empty");
-  final Uint8List data;
-  final bool selectable;
-  final List<String> asciiTable;
+
   AsciiArt.file(
     String path, {
     super.key,
@@ -25,6 +23,10 @@ class AsciiArt extends StatefulWidget {
     this.asciiTable = _asciiTable,
   })  : assert(path.isNotEmpty, "path must not be null"),
         data = File(path).readAsBytesSync();
+
+  final Uint8List data;
+  final bool selectable;
+  final List<String> asciiTable;
 
   @override
   State<StatefulWidget> createState() {
