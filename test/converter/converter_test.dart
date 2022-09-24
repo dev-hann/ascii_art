@@ -1,21 +1,48 @@
 import 'dart:typed_data';
 
 import 'package:ascii_art/src/ascii_converter/ascii_converter.dart';
-import 'package:ascii_art/src/const/ascii_table.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+const _defaultTable = ["M", "a", "o", "c", "(", "|", ";", ":", "'", ".", " "];
 
 void main() {
   group("Test Converter", () {
     group("Input Test", () {
+      test("decode Image Input", () {
+        // final data = Uint8List.fromList([1, 2, 3]);
+        // expect(
+        //   () => AsciiConverter(
+        //     data,
+        //     table: _defaultTable,
+        //   ),
+        //   throwsAssertionError,
+        // );
+      });
       test("normal Input", () {
-        final data = Uint8List.fromList([1, 2, 3]);
-        final c = AsciiConverter(data);
+        final data = Uint8List.fromList([1, 2, 3, 4, 5, 6]);
+        final c = AsciiConverter(
+          data,
+          table: _defaultTable,
+        );
         expect(c.data, data);
       });
-      test("empty Input", () {
+      test("empty Data", () {
         final data = Uint8List.fromList([]);
         expect(
-          () => AsciiConverter(data),
+          () => AsciiConverter(
+            data,
+            table: _defaultTable,
+          ),
+          throwsAssertionError,
+        );
+      });
+      test("empty Table", () {
+        final data = Uint8List.fromList([1, 2, 3]);
+        expect(
+          () => AsciiConverter(
+            data,
+            table: [],
+          ),
           throwsAssertionError,
         );
       });

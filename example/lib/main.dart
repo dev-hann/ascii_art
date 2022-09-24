@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:ascii_art/ascii_art.dart';
 import 'package:flutter/material.dart';
 
@@ -30,8 +28,22 @@ class AsciiArtExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: AsciiArt(
-          File("assets/example3.png"),
+        child: ListView(
+          padding: EdgeInsets.all(32),
+          children: [
+            AsciiArt.file(
+              "assets/example1.png",
+              selectable: true,
+            ),
+            AsciiArt.file(
+              "assets/example2.png",
+              selectable: true,
+            ),
+            AsciiArt.file(
+              "assets/example3.png",
+              selectable: true,
+            ),
+          ],
         ),
       ),
     );
